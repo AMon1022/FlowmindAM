@@ -203,6 +203,7 @@
   flex-direction: column;
   overflow: hidden;
   background: var(--bg-deep);
+  border-radius: 14px 0 0 0;
 }
 
 /* ── TOPBAR ─────────────────────────────────────────────────────── */
