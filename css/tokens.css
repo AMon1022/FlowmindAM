@@ -8,10 +8,10 @@
 /* ── DESIGN TOKENS ──────────────────────────────────────────────── */
 :root {
   /* Fond */
-  --bg-void:      #04060d;
-  --bg-deep:      #070b14;
-  --bg-base:      #0a0f1c;
-  --bg-layer:     #0e1525;
+  --bg-void:      #08090d;
+  --bg-deep:      #0d1017;
+  --bg-base:      #161a24;
+  --bg-layer:     #1b2030;
 
   /* Glass */
   --glass-bg:     rgba(255,255,255,0.04);
@@ -50,7 +50,7 @@
   --r-xl:  28px;
 
   /* Layout */
-  --sidebar-w: 238px;
+  --sidebar-w: 200px;
   --topbar-h:  58px;
 
   /* Transitions */
@@ -70,7 +70,7 @@
 
 [data-theme="light"] {
   --bg-void:      #dde3f2;
-  --bg-deep:      #e8edf8;
+  --bg-deep:      #e8ecf4;
   --bg-base:      #f0f4ff;
   --bg-layer:     #f8faff;
   --glass-bg:     rgba(255,255,255,0.6);

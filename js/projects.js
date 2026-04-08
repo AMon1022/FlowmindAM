@@ -190,6 +190,7 @@ const Projects = (() => {
     card.className = 'project-card fade-in';
     card.dataset.projectId = project.id;
     card.dataset.status = status;
+    card.style.setProperty('--project-color', project.color);
 
     const memoCount = typeof Memos !== 'undefined' ? Memos.getByProject(project.id).length : 0;
 
