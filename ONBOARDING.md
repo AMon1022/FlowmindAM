@@ -1,132 +1,103 @@
-# ONBOARDING — Rejoindre le projet FlowMind
+# ONBOARDING — Rejoindre le projet FlowMind (100% en ligne)
 
-Bienvenue sur le projet **FlowMind** ! Ce guide te permet de démarrer en 5 minutes sans toucher aux données de production.
-
----
-
-## 1. Prérequis
-
-- Git installé sur ta machine
-- Un navigateur moderne (Chrome, Firefox, Edge)
-- Accès en lecture au dépôt : `https://github.com/romaricponcin/Flowmind`
+Bienvenue sur le projet **FlowMind** ! Ce guide te permet de contribuer au projet entièrement depuis GitHub, sans rien installer sur ton ordinateur.
 
 ---
 
-## 2. Cloner le projet
+## 1. Créer un compte GitHub
 
-```bash
-git clone https://github.com/romaricponcin/Flowmind.git
-cd Flowmind
-```
+Si tu n'en as pas encore : [github.com/signup](https://github.com/signup)
 
----
-
-## 3. Créer ta branche individuelle
-
-Chaque développeur travaille sur sa propre branche. Remplace `prenom` par ton prénom ou identifiant :
-
-```bash
-git checkout -b dev-prenom origin/master
-git push -u origin dev-prenom
-```
-
-**Branches existantes :**
-| Développeur | Branche |
-|---|---|
-| Romaric (propriétaire) | `dev-utilisateur-A` |
-| _(prochain)_ | `dev-utilisateur-B` |
-| _(suivant)_ | `dev-prenom` |
+Communique ton nom d'utilisateur GitHub à Romaric pour qu'il t'invite en tant que collaborateur.
 
 ---
 
-## 4. Lancer l'application
+## 2. Accepter l'invitation
 
-Pas de serveur requis. Deux options :
+Tu recevras un email de GitHub avec un lien **"Accept invitation"**. Clique dessus.
 
-**Option A — Ouverture directe**
-Double-cliquer sur `index.html` dans ton explorateur de fichiers.
-
-**Option B — Serveur local** (recommandé pour éviter les restrictions navigateur)
-```bash
-# Python 3
-python -m http.server 8080
-```
-Puis ouvrir `http://localhost:8080` dans ton navigateur.
+Tu as maintenant accès au dépôt : [github.com/romaricponcin/Flowmind](https://github.com/romaricponcin/Flowmind)
 
 ---
 
-## 5. Profil navigateur dédié (fortement recommandé)
+## 3. Créer ta branche de travail
 
-Pour ne jamais mélanger tes données de développement avec celles de production :
+1. Va sur [github.com/romaricponcin/Flowmind](https://github.com/romaricponcin/Flowmind)
+2. Clique sur le menu déroulant des branches (en haut à gauche, affiche **"master"**)
+3. Dans le champ de recherche, tape : `dev-utilisateur-B`
+4. Clique sur **"Create branch: dev-utilisateur-B from master"**
 
-- **Chrome** : Menu (⋮) → Profils → Ajouter un profil → nommer "FlowMind Dev"
-- **Firefox** : taper `about:profiles` → Créer un nouveau profil → "FlowMind Dev"
-
-Le `localStorage` est isolé par profil : zéro risque de collision.
-
----
-
-## 6. Workflow quotidien
-
-```bash
-# Avant de commencer — toujours synchroniser avec master
-git fetch origin
-git merge origin/master
-
-# Coder, tester...
-
-# Vérifier ce qu'on va commiter
-git status
-git diff --staged
-
-# Stager uniquement les fichiers de CODE (jamais de *.json)
-git add js/mon-fichier.js css/style.css index.html
-
-# Commiter avec un message clair
-git commit -m "feat: description de la fonctionnalité"
-
-# Pousser vers sa branche
-git push origin dev-prenom
-```
+Ta branche est créée. Tu travailleras uniquement sur celle-ci.
 
 ---
 
-## 7. Proposer une modification vers master (Pull Request)
+## 4. Modifier un fichier en ligne
 
-Quand une fonctionnalité est prête :
-
-1. S'assurer que sa branche est à jour avec `master` :
-   ```bash
-   git fetch origin
-   git merge origin/master
-   git push origin dev-prenom
-   ```
-2. Aller sur GitHub → **Compare & pull request**
-3. Décrire le changement et assigner Romaric en reviewer
-4. Attendre la validation avant le merge
-
-**Ne jamais merger directement en ligne de commande vers `master`.**
+1. Assure-toi d'être sur ta branche `dev-utilisateur-B` (vérifie le menu déroulant)
+2. Navigue jusqu'au fichier à modifier (ex. `js/app.js`)
+3. Clique sur l'icône **crayon** ✏️ en haut à droite du fichier
+4. Fais tes modifications directement dans l'éditeur en ligne
+5. En bas de page, section **"Commit changes"** :
+   - Écris un message clair (ex. `feat: ajout du bouton X`)
+   - Sélectionne **"Commit directly to dev-utilisateur-B"**
+   - Clique **"Commit changes"**
 
 ---
 
-## 8. Ce qu'il ne faut JAMAIS commiter
+## 5. Tester les modifications
+
+Après chaque commit, tu peux tester directement depuis ton navigateur :
+
+1. Va dans l'onglet **"Actions"** du dépôt
+2. Ou ouvre simplement le fichier `index.html` depuis GitHub et clique **"Raw"**
+
+> Pour un test complet, demande à Romaric d'activer GitHub Pages sur ta branche temporairement, ou teste localement en téléchargeant le dossier (bouton **"Code" → "Download ZIP"**).
+
+---
+
+## 6. Synchroniser avec les nouveautés de master
+
+Avant de commencer à travailler, vérifie si `master` a évolué :
+
+1. Va sur [github.com/romaricponcin/Flowmind/compare/dev-utilisateur-B...master](https://github.com/romaricponcin/Flowmind/compare/dev-utilisateur-B...master)
+2. Si des commits apparaissent → clique **"Create pull request"** en inversant le sens : `base: dev-utilisateur-B ← compare: master`
+3. Merge pour intégrer les nouveautés dans ta branche
+
+---
+
+## 7. Proposer tes modifications (Pull Request)
+
+Quand ta fonctionnalité est prête :
+
+1. Va sur [github.com/romaricponcin/Flowmind](https://github.com/romaricponcin/Flowmind)
+2. Une bannière jaune apparaît : **"dev-utilisateur-B had recent pushes"** → clique **"Compare & pull request"**
+3. Vérifie que la direction est : `base: master ← compare: dev-utilisateur-B`
+4. Ajoute un titre clair et une description
+5. Clique **"Create pull request"**
+6. Romaric reçoit une notification, il review et valide le merge
+
+**Ne jamais merger toi-même vers master — c'est Romaric qui valide.**
+
+---
+
+## 8. Ce qu'il ne faut jamais commiter
 
 | Fichier | Raison |
 |---|---|
 | `flowmind-backup-*.json` | Données personnelles réelles |
 | `flowmind-data*.json` | Idem |
-| `js/seed-tne-drane.js` | Noms de personnes et d'établissements réels |
+| `js/seed-tne-drane.js` | Données d'établissements et de personnes réelles |
 
-Le `.gitignore` bloque automatiquement les JSON de données — vérifier quand même `git status` avant chaque commit.
+GitHub bloque automatiquement ces fichiers via `.gitignore` — mais reste vigilant lors de tes commits.
 
 ---
 
-## 9. Règles complètes
+## 9. Règles complètes du workflow
 
-Toutes les règles de workflow sont dans **`CLAUDE.md`** à la racine du projet. À lire avant de commencer.
+Toutes les règles sont dans **`CLAUDE.md`** à la racine du projet.
 
 ---
 
 ## 10. Questions / Problèmes
 
-Ouvrir une **Issue** sur GitHub avec le label approprié, ou contacter Romaric directement.
+Ouvre une **Issue** sur GitHub ou contacte Romaric directement.
