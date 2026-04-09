@@ -20,6 +20,7 @@ const App = (() => {
     Projects.init(_state, saveState);
     Tasks.init(_state, saveState);
     Memos.init(_state, saveState);
+    Templates.init(_state, saveState);
     ICal.init(_state, saveState);
     Reports.init(_state);
 
@@ -110,6 +111,16 @@ const App = (() => {
       Projects.showCreateModal();
     });
 
+    // Create project from template btn
+    document.getElementById('project-from-template-btn')?.addEventListener('click', () => {
+      Templates.showUseTemplateModal();
+    });
+
+    // Manage templates btn
+    document.getElementById('manage-templates-btn')?.addEventListener('click', () => {
+      Templates.showTemplatesPanel();
+    });
+
     // Help button — affiche le README.md rendu en HTML
     document.getElementById('help-btn')?.addEventListener('click', _showHelp);
     document.getElementById('help-close')?.addEventListener('click', () => {
@@ -135,6 +146,7 @@ const App = (() => {
         Projects.init(_state, saveState);
         Tasks.init(_state, saveState);
         Memos.init(_state, saveState);
+        Templates.init(_state, saveState);
         ICal.init(_state, saveState);
         Reports.init(_state);
         Projects.populateSelects();
@@ -156,6 +168,7 @@ const App = (() => {
         Projects.init(_state, saveState);
         Tasks.init(_state, saveState);
         Memos.init(_state, saveState);
+        Templates.init(_state, saveState);
         ICal.init(_state, saveState);
         Reports.init(_state);
         Projects.populateSelects();
@@ -181,6 +194,7 @@ const App = (() => {
         Projects.init(_state, saveState);
         Tasks.init(_state, saveState);
         Memos.init(_state, saveState);
+        Templates.init(_state, saveState);
         Projects.populateSelects();
         Gamification.renderSidebar();
         closeModal();
@@ -636,6 +650,12 @@ const App = (() => {
     ]);
   }
 
+  function showAlert(title, message) {
+    showModal(title, `<p style="font-size:14px;color:var(--text-secondary)">${message}</p>`, [
+      { label: 'OK', cls: 'btn-secondary', action: closeModal }
+    ]);
+  }
+
   // ─── REPORTS SELECT ────────────────────────────────────────────────────
 
   function _populateReportSelects() {
@@ -912,6 +932,7 @@ const App = (() => {
         Projects.init(_state, saveState);
         Tasks.init(_state, saveState);
         Memos.init(_state, saveState);
+        Templates.init(_state, saveState);
         ICal.init(_state, saveState);
         Reports.init(_state);
         Projects.populateSelects();
@@ -1004,7 +1025,7 @@ const App = (() => {
     el.querySelectorAll('blockquote').forEach(bq => { bq.style.cssText = 'border-left:3px solid var(--accent-border);padding:6px 12px;margin:8px 0;background:rgba(79,142,255,0.05);border-radius:0 6px 6px 0'; });
   }
 
-  return { init, refresh, saveState, showModal, closeModal, showConfirm, launchFocusMode };
+  return { init, refresh, saveState, showModal, closeModal, showConfirm, showAlert, launchFocusMode };
 })();
 
 // ── BOOTSTRAP ──────────────────────────────────────────────────────────
